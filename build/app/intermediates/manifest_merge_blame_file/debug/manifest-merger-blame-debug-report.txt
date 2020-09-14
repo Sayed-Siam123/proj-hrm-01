@@ -1,0 +1,105 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.hrm_app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="29" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:9:5-67
+14-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:9:22-64
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:10:5-79
+15-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:10:22-76
+16    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+16-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:11:5-75
+16-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:11:22-73
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:12:5-79
+17-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:12:22-77
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+18-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:13:5-80
+18-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:13:22-78
+19
+20    <application
+20-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:15:5-53:19
+21        android:name="io.flutter.app.FlutterApplication"
+21-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:16:9-57
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.1.0] /Users/ptvl/.gradle/caches/transforms-2/files-2.1/fc785d3673ca7ec4009108d2721750b3/core-1.1.0/AndroidManifest.xml:24:18-86
+23        android:debuggable="true"
+24        android:icon="@mipmap/ic_launcher"
+24-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:18:9-43
+25        android:label="hrm_app" >
+25-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:17:9-32
+26        <activity
+26-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:19:9-47:20
+27            android:name="com.example.hrm_app.MainActivity"
+27-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:20:13-41
+28            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+28-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:23:13-163
+29            android:hardwareAccelerated="true"
+29-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:24:13-47
+30            android:launchMode="singleTop"
+30-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:21:13-43
+31            android:theme="@style/LaunchTheme"
+31-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:22:13-47
+32            android:windowSoftInputMode="adjustResize" >
+32-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:25:13-55
+33
+34            <!--
+35                 Specifies an Android theme to apply to this Activity as soon as
+36                 the Android process has started. This theme is visible to the user
+37                 while the Flutter UI initializes. After that, this theme continues
+38                 to determine the Window background behind the Flutter UI.
+39            -->
+40            <meta-data
+40-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:30:13-33:17
+41                android:name="io.flutter.embedding.android.NormalTheme"
+41-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:31:15-70
+42                android:resource="@style/NormalTheme" />
+42-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:32:15-52
+43            <!--
+44                 Displays an Android View that continues showing the launch screen
+45                 Drawable until Flutter paints its first frame, then this splash
+46                 screen fades out. A splash screen is useful to avoid any visual
+47                 gap between the end of Android's launch screen and the painting of
+48                 Flutter's first frame.
+49            -->
+50            <meta-data
+50-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:39:13-42:17
+51                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+51-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:40:15-79
+52                android:resource="@drawable/launch_background" />
+52-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:41:15-61
+53
+54            <intent-filter>
+54-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:43:13-46:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:44:17-68
+55-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:44:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:45:17-76
+57-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:45:27-74
+58            </intent-filter>
+59        </activity>
+60        <!--
+61             Don't delete the meta-data below.
+62             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+63        -->
+64        <meta-data
+64-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:50:9-52:33
+65            android:name="flutterEmbedding"
+65-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:51:13-44
+66            android:value="2" />
+66-->/Users/ptvl/Desktop/Flutter /hrm_app/android/app/src/main/AndroidManifest.xml:52:13-30
+67    </application>
+68
+69</manifest>
