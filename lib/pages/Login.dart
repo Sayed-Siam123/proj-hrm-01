@@ -273,10 +273,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                   //   Password: password.text,
                                                   // );
 
-                                                  // setState(() {
-                                                  //   loginPress = true;
-                                                  // });
-
                                                   //userbloc.userlogin(user);
                                                   print(loginPress);
                                                   //userbloc.dispose();
@@ -289,26 +285,27 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                      userLoginModel = await apiProvider.userlogin(email.text, password.text);
                                                   });
 
-
-
-                                                  prefs.setData(loginKey, userLoginModel.LogStatus.toString());
-                                                  prefs.setData(useridKey, userLoginModel.UserId.toString());
-                                                  prefs.setData(loginName, userLoginModel.Name.toString());
-                                                  prefs.setData(userDesignation, userLoginModel.Designation.toString());
-                                                  prefs.setData(PresentStatus, userLoginModel.PresentStatus.toString());
-                                                  prefs.setData(LateStatus, userLoginModel.LateStatus.toString());
-                                                  prefs.setData(Intimes, userLoginModel.Intimes.toString());
-                                                  prefs.setData(MonthPresent, userLoginModel.MonthPresent.toString());
-                                                  prefs.setData(MonthAbesnt, userLoginModel.MonthAbesnt.toString());
-                                                  prefs.setData(MonthLeave, userLoginModel.MonthLeave.toString());
-                                                  prefs.setData(MonthLate, userLoginModel.MonthLate.toString());
-
                                                   Timer(Duration(seconds: 1), () async{
                                                     if (userLoginModel != null) {
                                                       if (userLoginModel.LogStatus == true) {
+
+
+                                                        prefs.setData(loginKey, userLoginModel.LogStatus.toString());
+                                                        prefs.setData(useridKey, userLoginModel.UserId.toString());
+                                                        prefs.setData(loginName, userLoginModel.Name.toString());
+                                                        prefs.setData(userDesignation, userLoginModel.Designation.toString());
+                                                        prefs.setData(PresentStatus, userLoginModel.PresentStatus.toString());
+                                                        prefs.setData(LateStatus, userLoginModel.LateStatus.toString());
+                                                        prefs.setData(Intimes, userLoginModel.Intimes.toString());
+                                                        prefs.setData(MonthPresent, userLoginModel.MonthPresent.toString());
+                                                        prefs.setData(MonthAbesnt, userLoginModel.MonthAbesnt.toString());
+                                                        prefs.setData(MonthLeave, userLoginModel.MonthLeave.toString());
+                                                        prefs.setData(MonthLate, userLoginModel.MonthLate.toString());
+
                                                         print('Email / pass matched successfully');
                                                         email.text = "";
                                                         password.text = "";
+
                                                         Scaffold.of(context)
                                                             .showSnackBar(
                                                                 SnackBar(
@@ -328,6 +325,10 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                               seconds: 4),
                                                         ));
 
+                                                        // setState(() {
+                                                        //   loginPress = true;
+                                                        // });
+
                                                         Timer(Duration(seconds: 2), () {
                                                           Navigator.push(context,
                                                             MaterialPageRoute(builder: (context) => MainPage(currentIndex: 0,)),
@@ -340,6 +341,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                         print('Email / pass not matched');
                                                         email.text = "";
                                                         password.text = "";
+
+                                                        // setState(() {
+                                                        //   loginPress = false;
+                                                        // });
+
                                                         Scaffold.of(context)
                                                             .showSnackBar(
                                                             SnackBar(
@@ -384,7 +390,16 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       ),
                                     ],
                                   )
-                                : Text("Login Pressed"),
+                                : Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                CircularProgressIndicator(
+                                  backgroundColor: Theme.of(context).backgroundColor,
+                                ),
+                                SizedBox(height: 5,),
+                                Text("Login Pressed"),
+                              ],
+                            ),
                           ),
                         ],
                       )),
