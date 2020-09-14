@@ -160,7 +160,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               // ...
               logout();
 
-              Timer(Duration(seconds: 2), () {
+              Timer(Duration(milliseconds: 50), () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage(status: false,)),

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ptvl/Desktop/Flutter /hrm_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml",
+            "outputFile": "/Users/sayed/WorkOnline/proj-hrm-01/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml",
             "map": [
                 {
-                    "source": "/Users/ptvl/.gradle/caches/transforms-2/files-2.1/fc785d3673ca7ec4009108d2721750b3/core-1.1.0/res/values-sk/values-sk.xml",
+                    "source": "/Users/sayed/.gradle/caches/transforms-2/files-2.1/fc785d3673ca7ec4009108d2721750b3/core-1.1.0/res/values-sk/values-sk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

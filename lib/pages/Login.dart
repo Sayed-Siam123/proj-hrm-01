@@ -54,6 +54,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   String errortext1 = "*user id can\'t be empty";
   String errortext2 = "*password can\'t be empty";
 
+  UserLogin_model userLoginModel;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -205,6 +207,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                   : null,
                                             ),
                                           )),
+
                                       Container(
                                         height: 55,
                                         width:
@@ -227,185 +230,90 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                           ],
                                         ),
                                         child: Center(
-                                          child: FlatButton(
-                                            onPressed: () async {
-                                              if (email.text.isEmpty &&
-                                                  email.text == "") {
-                                                print("KHali");
+                                          child: Builder(
+                                            builder: (context) => FlatButton(
+                                              onPressed: () async {
+                                                if (email.text.isEmpty &&
+                                                    email.text == "") {
+                                                  print("KHali");
 
-                                                setState(() {
-                                                  _validate2 = true;
-                                                  _validate1 = false;
-                                                });
+                                                  setState(() {
+                                                    _validate2 = true;
+                                                    _validate1 = false;
+                                                  });
 
-                                                //TODO:: Toast hobe ekta
-                                              } else if (password
-                                                      .text.isEmpty &&
-                                                  password.text == "") {
-                                                print("eitao KHali");
+                                                  //TODO:: Toast hobe ekta
+                                                } else if (password
+                                                        .text.isEmpty &&
+                                                    password.text == "") {
+                                                  print("eitao KHali");
 
-                                                setState(() {
-                                                  _validate1 = true;
-                                                  _validate2 = false;
-                                                });
+                                                  setState(() {
+                                                    _validate1 = true;
+                                                    _validate2 = false;
+                                                  });
 
-                                                //TODO:: Toast hobe ekta
-                                              } else {
-                                                setState(() {
-                                                  _validate1 = true;
-                                                  _validate2 = true;
-                                                });
-                                              }
-                                              print("Vora");
-
-                                              if (_validate1 && _validate2) {
-                                                print(email.text);
-                                                print(password.text);
-                                                //userbloc.getuser_id(email.text);
-                                                //userbloc.getUser_pass(password.text);
-
-                                                user = UserLogin_model(
-                                                  UserId: email.text,
-                                                  Password: password.text,
-                                                );
-
-                                                setState(() {
-                                                  loginPress = true;
-                                                });
-
-                                                userbloc.userlogin(user);
-                                                print(loginPress);
-                                                //userbloc.dispose();
-
-                                                print("Full Valid");
-                                                email.text = "";
-                                                password.text = "";
-
-                                                ApiProvider apiProvider =
-                                                    new ApiProvider();
-
-                                                UserLogin_model userLoginModel =
-                                                    await apiProvider.userlogin(
-                                                        email.text,
-                                                        password.text);
-
-                                                if (userLoginModel != null) {
-                                                  if (userLoginModel.UserId !=
-                                                      null) {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              MainPage(
-                                                                currentIndex: 0,
-                                                              )),
-                                                    );
-                                                  }
+                                                  //TODO:: Toast hobe ekta
                                                 } else {
-                                                  print(
-                                                      'Email / pass not mached');
+                                                  setState(() {
+                                                    _validate1 = true;
+                                                    _validate2 = true;
+                                                  });
                                                 }
-                                              }
-                                            },
-                                            child: Text(
-                                              "LOGIN",
-                                              style: GoogleFonts.poppins(
-                                                textStyle: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                :
+                                                print("Vora");
 
-                                //Text("Login Pressed"),
+                                                if (_validate1 && _validate2) {
+                                                  print(email.text);
+                                                  print(password.text);
+                                                  //userbloc.getuser_id(email.text);
+                                                  //userbloc.getUser_pass(password.text);
 
-                                loginPress == true
-                                    ? Builder(
-                                        builder: (context) {
-                                          return Center(
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  .2,
-                                              width: 300,
-                                              child: StreamBuilder<
-                                                  UserLogin_model>(
-                                                stream:
-                                                    userbloc.LoginSuccessData,
-                                                builder: (context,
-                                                    AsyncSnapshot<
-                                                            UserLogin_model>
-                                                        snapshot) {
-                                                  if (snapshot.hasData) {
-                                                    fetchedData = snapshot.data;
-                                                    //_newData = fetcheddata;
-                                                    print("Login:: " +
-                                                        snapshot.data.Name
-                                                            .toString());
-                                                    if (snapshot.data.LogStatus
-                                                            .toString() ==
-                                                        "true") {
-                                                      print("Login:: " +
-                                                          snapshot
-                                                              .data.LogStatus
-                                                              .toString());
+                                                  // user = UserLogin_model(
+                                                  //   UserId: email.text,
+                                                  //   Password: password.text,
+                                                  // );
 
-                                                      //
-                                                      // if(loginPress){
-                                                      //   print("Here login press is: "+loginPress.toString());
-                                                      //   SchedulerBinding.instance.addPostFrameCallback((_) {
-                                                      //     Timer(Duration(seconds: 2), () {
-                                                      //       Navigator.push(
-                                                      //         context,
-                                                      //         MaterialPageRoute(builder: (context) => MainPage(currentIndex: 0,)),
-                                                      //       );
-                                                      //     });    //TODO:: DELAY EXAMPLE
-                                                      //     print("Login True");
-                                                      //   });
-                                                      // }
+                                                  // setState(() {
+                                                  //   loginPress = true;
+                                                  // });
 
-                                                      // WidgetsBinding.instance.addPostFrameCallback((_){  // this will call for setState()
-                                                      //   Timer(Duration(seconds: 2), () {
-                                                      //     Navigator.push(
-                                                      //       context,
-                                                      //       MaterialPageRoute(builder: (context) => MainPage(currentIndex: 0,)),
-                                                      //     );
-                                                      //   });    //TODO:: DELAY EXAMPLE
-                                                      //   print("Login True");
-                                                      //
-                                                      // });
-                                                      userbloc.dispose();
-                                                    } else if (snapshot
-                                                            .data.LogStatus
-                                                            .toString() ==
-                                                        "false") {
-                                                      print(
-                                                          "if false Login:: " +
-                                                              snapshot.data
-                                                                  .LogStatus
-                                                                  .toString());
+                                                  //userbloc.userlogin(user);
+                                                  print(loginPress);
+                                                  //userbloc.dispose();
 
-                                                      WidgetsBinding.instance
-                                                          .addPostFrameCallback(
-                                                              (_) {
-                                                        prefs.setData(
-                                                            loginKey, "false");
-                                                        setState(() {
-                                                          loginPress = false;
-                                                        });
-                                                        print("Login False");
+                                                  print("Full Valid");
+
+                                                  ApiProvider apiProvider = new ApiProvider();
+
+                                                  Timer(Duration(milliseconds: 50), () async{
+                                                     userLoginModel = await apiProvider.userlogin(email.text, password.text);
+                                                  });
+
+
+
+                                                  prefs.setData(loginKey, userLoginModel.LogStatus.toString());
+                                                  prefs.setData(useridKey, userLoginModel.UserId.toString());
+                                                  prefs.setData(loginName, userLoginModel.Name.toString());
+                                                  prefs.setData(userDesignation, userLoginModel.Designation.toString());
+                                                  prefs.setData(PresentStatus, userLoginModel.PresentStatus.toString());
+                                                  prefs.setData(LateStatus, userLoginModel.LateStatus.toString());
+                                                  prefs.setData(Intimes, userLoginModel.Intimes.toString());
+                                                  prefs.setData(MonthPresent, userLoginModel.MonthPresent.toString());
+                                                  prefs.setData(MonthAbesnt, userLoginModel.MonthAbesnt.toString());
+                                                  prefs.setData(MonthLeave, userLoginModel.MonthLeave.toString());
+                                                  prefs.setData(MonthLate, userLoginModel.MonthLate.toString());
+
+                                                  Timer(Duration(seconds: 1), () async{
+                                                    if (userLoginModel != null) {
+                                                      if (userLoginModel.LogStatus == true) {
+                                                        print('Email / pass matched successfully');
+                                                        email.text = "";
+                                                        password.text = "";
                                                         Scaffold.of(context)
                                                             .showSnackBar(
                                                                 SnackBar(
                                                           content: Text(
-                                                            'Incorrect UserID or Password!',
+                                                            'Email / pass matched successfully',
                                                             style: GoogleFonts
                                                                 .exo2(
                                                               textStyle:
@@ -419,33 +327,64 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                                           duration: Duration(
                                                               seconds: 4),
                                                         ));
-                                                      });
-                                                      userbloc.dispose();
-                                                    }
-                                                  } else if (snapshot
-                                                      .hasError) {
-                                                    return Text(
-                                                        "${snapshot.error}");
-                                                  }
 
-                                                  return Center(
-                                                      child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.end,
-                                                    children: <Widget>[
-                                                      CircularProgressIndicator(),
-                                                      Text("Logging in...")
-                                                    ],
-                                                  ));
-                                                },
+                                                        Timer(Duration(seconds: 2), () {
+                                                          Navigator.push(context,
+                                                            MaterialPageRoute(builder: (context) => MainPage(currentIndex: 0,)),
+                                                          );
+                                                        });
+
+                                                      }
+
+                                                      else {
+                                                        print('Email / pass not matched');
+                                                        email.text = "";
+                                                        password.text = "";
+                                                        Scaffold.of(context)
+                                                            .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Email / pass not matched',
+                                                                style: GoogleFonts
+                                                                    .exo2(
+                                                                  textStyle:
+                                                                  TextStyle(
+                                                                    fontSize: 16,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  seconds: 4),
+                                                            ));
+                                                      }
+
+                                                    } else {
+                                                      email.text = "";
+                                                      password.text = "";
+                                                      print('Empty');
+                                                    }
+                                                  });
+
+                                                }
+                                              },
+                                              child: Text(
+                                                "LOGIN",
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          );
-                                        },
-                                      )
-                                    : Center(
-                                        child: Text("OK!"),
+                                          ),
+                                        ),
                                       ),
+                                    ],
+                                  )
+                                : Text("Login Pressed"),
                           ),
                         ],
                       )),

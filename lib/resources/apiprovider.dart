@@ -59,14 +59,14 @@ class ApiProvider{
   Future<UserLogin_model> userlogin(Uid,Upas) async{
 
     print("data from apiprovider :: " + Uid.toString() + " " + Upas.toString());
-    //${GlobalConfiguration().getString('api_base_url1')}
+    //${GlobalConfiguration().getString('api_base_url2')}
 
 
     //final response = await client.get("http://202.164.212.238:8056/WS.asmx/GetUserLogin?Uid="+Uid.toString()+"&Upas="+Upas.toString());
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetUserLogin?Uid="+Uid.toString()+"&Upas="+Upas.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetUserLogin?Uid="+Uid.toString()+"&Upas="+Upas.toString());
 
     //final response = await client.get("http://172.16.61.221:8056/WS.asmx/GetUserLogin?Uid="+Uid.toString()+"&Upas="+Upas.toString());
-    print("api_base_url1: ${GlobalConfiguration().getString('api_base_url1')}"); // need to use for api call
+    print("api_base_url2: ${GlobalConfiguration().getString('api_base_url2')}"); // need to use for api call
     if (response.statusCode == 200) {
 
       debugPrint("From singleGet Class:: "+json.decode(response.body).toString());
@@ -86,12 +86,12 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //1sec delay
 
-    print("${GlobalConfiguration().getString('api_base_url1')}");
+    print("${GlobalConfiguration().getString('api_base_url2')}");
     print(userID.toString());
 //    print(Uid.toString());
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetUserNotifications?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetUserNotifications?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -114,7 +114,7 @@ class ApiProvider{
 
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetLeaveType?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetLeaveType?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -137,7 +137,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetLeaveSummary?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetLeaveSummary?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -161,7 +161,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetLeaveList?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetLeaveList?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -184,7 +184,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"LeaveSubmit?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"LeaveSubmit?Uid="+userID.toString()
                                         +"&LeaveType="+data.LeaveType.toString()
                                         +"&FromDate="+data.FromDate.toString()
                                         +"&ToDate="+data.ToDate.toString()
@@ -211,7 +211,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetVisaList?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetVisaList?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -234,7 +234,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"GetInsuranceList?Uid="+userID.toString());
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"GetInsuranceList?Uid="+userID.toString());
 
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -256,7 +256,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"VisaSubmit?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"VisaSubmit?Uid="+userID.toString()
         +"&IssueCity="+data.IssueCity.toString()
         +"&IssueDate="+data.IssueDate.toString()
         +"&ExpDate="+data.ExpDate.toString());
@@ -280,7 +280,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"InsuranceSubmit?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"InsuranceSubmit?Uid="+userID.toString()
         +"&ExpDate="+data.expireDate.toString());
 
     if (response.statusCode == 200) {
@@ -301,7 +301,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"ApproveLeave?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"ApproveLeave?Uid="+userID.toString()
         +"&Rid="+data.Rid.toString()
         +"&Status="+data.status.toString());
 
@@ -323,7 +323,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"ApproveVisa?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"ApproveVisa?Uid="+userID.toString()
         +"&Rid="+data.Rid.toString()
         +"&Status="+data.status.toString());
 
@@ -345,7 +345,7 @@ class ApiProvider{
     await new Future.delayed(const Duration(milliseconds: 1000));
     //then it will get data
     print("fetch from apiprovider");
-    final response = await client.get("${GlobalConfiguration().getString('api_base_url1')}"+"ApproveInsurance?Uid="+userID.toString()
+    final response = await client.get("${GlobalConfiguration().getString('api_base_url2')}"+"ApproveInsurance?Uid="+userID.toString()
         +"&Rid="+data.Rid.toString()
         +"&Status="+data.status.toString());
 
